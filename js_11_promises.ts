@@ -51,5 +51,61 @@ const onReject = (err: any) => {
      reject() is called 
 */
 
-newPromise.then(onFulFillment)
-newPromise.catch(onReject)
+newPromise
+  .then(onFulFillment)
+  .catch(onReject)
+
+/*
+# Promise.all()
+
+  1. Query multiple APIs and perform some actions only after all the APIs have
+     finished loading
+
+  2. method takes an iterable of promises as an input and returns a single
+     Promise that resolves to an array as its result 
+
+  3. Promises resolve once all input promises resolved but immediately rejects
+     in its entirety if even one of them fail. No partial successes here
+     
+     a. If you wish to wait until all input promises are completed, you can also
+     use Promise.allSettled() instead of Pormise.all()
+*/
+
+const promise1 = Promise.resolve(3);
+const promise2 = 43;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo')
+})
+
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  /*
+    values will print out an array with each individual value as its own entry
+    in the array. If one of the promises fail, the entire Promise.all will fail
+  */
+  console.log(values);
+})
+.catch((err) => {
+  console.log(err);
+})
+
+// exact same except resolves or rejects only after every promise has been completed
+Promise.allSettled([promise1, promise2, promise3]).then((values) => {
+  /*
+    values will print out an array with each individual value as its own entry
+    in the array. If one of the promises fail, the entire Promise.all will fail
+  */
+  console.log(values);
+})
+.catch((err) => {
+  console.log(err);
+})
+
+
+/* 
+  Promise.race returns a promise that is fullfed or rejected as soon one of the
+  input promises fullfills or rejects. Its a first finsished, first served function
+*/
+Promise.race([promise2, promise3]).then((value) => {
+  // return promise2 because it resolves the fastest
+  console.log(value)
+})
