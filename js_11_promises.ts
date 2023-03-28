@@ -109,3 +109,4 @@ Promise.race([promise2, promise3]).then((value) => {
   // return promise2 because it resolves the fastest
   console.log(value)
 })
+export {};
