@@ -6,8 +6,6 @@
 
   2. They are created every time a function is created and function creation
      time
-  
-  
 */
 
 function outer() {

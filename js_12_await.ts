@@ -105,7 +105,7 @@ async function handleSequentially() {
   Concurrent Execution means running both at the same time and executes both in
   6 seconds as it runs concurrrently meaning that the time it takes to finish
   is simply the time of the longest operatio nwhich in this case is resolveA at
-  6 seconds. Not good is promises are dependent on one another
+  6 seconds. Not good if promises are dependent on one another
 */
 async function handleConcurrently() {
   const answerA = resolveA();

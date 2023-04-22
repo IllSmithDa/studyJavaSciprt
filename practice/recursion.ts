@@ -39,4 +39,14 @@ const recursiveSUm = (inputNum: number): number => {
   return inputNum + recursiveSUm(inputNum - 1);
 }
 
-console.log(recursiveSUm(5));
+// console.log(recursiveSUm(5));
+
+
+const fibonacci = (inputNum: number): number => {
+
+  if (inputNum === 0 || inputNum === 1) return inputNum;
+
+  return fibonacci(inputNum - 1) + fibonacci(inputNum - 2);
+}
+
+console.log(fibonacci(5));

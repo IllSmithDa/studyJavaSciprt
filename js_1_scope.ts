@@ -47,10 +47,11 @@ let a2 = 10;
 function outer2() {
   let b = 40;
   /*
-     var c wil cause an error because this function can only check outwards from its
-     scope not towards inner functiosn 
+     console logging 'c' as the outer function when var 'c' is in the inner
+     function wil cause an error because this function can only check outwards
+     from its scope not towards inner functiosn 
   */
-  // console.log(a, b, c);
+  console.log(a, b, c);
   function inner2() {
     // starts here and moves outwards until it reaches outer scope
     let c = 30;
